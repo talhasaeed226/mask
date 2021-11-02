@@ -1,0 +1,523 @@
+	<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"291c9cd637",applicationID:"28107907"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1198.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+	<meta name="apple-itunes-app" content="app-id=1204910529">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Salt’n Pepper Restaurants Official Website</title>
+	<meta name="description" content="Welcome to the Salt'n Pepper Restaurants official website. Get
+							latest information on menus, deals, events at our Salt n Pepper
+							and Salt n Pepper Village restaurants in Lahore.">
+	<meta name="keywords" content="Salt n Pepper Lahore , Salt n Pepper Pakistan, BBQ restaurant in Lahore, Best restaurant in Lahore,
+								Hi-tea Lahore, Online food delivery, Restaurants in Lahore,
+								Village Restaurant Lahore, Mm Alam road restaurants, online
+								ordering">
+    <!-- <meta name="google-play-app" content="app-id=com.saltnpepper.app"> -->
+
+
+    <meta name="smartbanner:title" content="Salt'n Pepper">
+	<meta name="smartbanner:author" content="Salt'n Pepper">
+	<meta name="smartbanner:price" content="FREE">
+	<meta name="smartbanner:price-suffix-google" content=" - In Google Play">
+	<meta name="smartbanner:icon-google" content="https://www.saltnpepper.com.pk/assets/images/snpandroidlogo.png">
+	<meta name="smartbanner:button" content="VIEW">
+	<meta name="smartbanner:button-url-google" content="https://play.google.com/store/apps/details?id=com.saltnpepper.app&hl=en">
+	<meta name="smartbanner:enabled-platforms" content="android">
+
+
+    <link rel="icon" href="https://www.saltnpepper.com.pk/assets/images/favicon.jpg">
+
+    <title>Salt n Pepper Restaurant</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://www.saltnpepper.com.pk/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap theme -->
+    <link href="https://www.saltnpepper.com.pk/assets/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="https://www.saltnpepper.com.pk/assets/fonts/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+	<link href="https://www.saltnpepper.com.pk/assets/css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.saltnpepper.com.pk/assets/css/lightbox.css" >
+	<link rel="stylesheet" href="https://www.saltnpepper.com.pk/assets/css/jquery-ui.css" >
+
+       <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://www.saltnpepper.com.pk/assets/js/bootstrap.min.js"></script>
+
+    <script src="https://www.saltnpepper.com.pk/assets/js/jquery-ui.js"></script>
+    <script src="https://www.saltnpepper.com.pk/assets/js/holder.js"></script>
+    <script src="https://www.saltnpepper.com.pk/assets/js/jquery.validate.min.js"></script>
+    <script src="https://www.saltnpepper.com.pk/assets/js/lightbox.js" type="text/javascript"></script>
+
+	<script src="https://www.saltnpepper.com.pk/assets/js/bootbox.min.js" type="text/javascript"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+    <!-- Facebook Pixel Code -->
+
+	<!-- DO NOT MODIFY -->
+	<!-- End Facebook Pixel Code -->
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+					<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-P8XQC29');</script>
+			<!-- End Google Tag Manager -->
+	
+ </head>
+
+  <body role="document">
+					<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8XQC29"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+	  	<link rel="stylesheet" href="https://www.saltnpepper.com.pk/assets/css/smartbanner.css">
+	<script src="https://www.saltnpepper.com.pk/assets/js/smartbanner.js"></script>
+
+  	 <div class="container-fluid theme-showcase padding_none" role="main">
+  	 	<head>
+
+		</head>
+				<div class="modal fade" id="myModalpopup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow-y:hidden !important;top: 15% !important;">
+ 	<div class="modal-dialog modal-lg popup-closed" role="document">
+ 		<div class="modal-content">
+ 			<div class="modal-header">
+ 				<img src="https://www.saltnpepper.com.pk/assets/images/Salt'n-Pepper-Restaurant-01.png">
+ 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ 			</div>
+ 			<div class="modal-body">
+ 				<p>Online Orders are not available at the moment</p><p id="timings"></p>
+ 			</div>
+ 		</div>
+ 	</div>
+</div><!-- end Model -->
+<script type="text/javascript" src="http://assets.freshdesk.com/widget/freshwidget.js"></script>
+<script type="text/javascript">
+	if (window.location.href.indexOf('#_=_') > 0) {
+	window.location = window.location.href.replace(/#.*/, '');
+	}
+	FreshWidget.init("", {"queryString": "&widgetType=popup&formTitle=Help+%26+Support&submitTitle=Send+Feedback&submitThanks=Thank+you+for+your+feedback&captcha=yes", "backgroundImage": "http://assets.freshdesk.com/widget/help-button.png", "utf8": "✓", "widgetType": "popup", "buttonType": "image", "buttonText": "Support", "buttonColor": "white", "buttonBg": "#ee1d25", "alignment": "2", "offset": "145px", "submitThanks": "Thank you for your feedback", "formHeight": "500px", "captcha": "yes", "url": "https://saltnpepper.freshdesk.com"} );
+</script>
+<nav class="navbar navbar-inverse navbar-fixed-top black_bg">
+      <div class="container">
+        <div class="navbar-header xs-view">
+        <title> </title>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          
+            
+          <a class="padding_none" href="https://www.saltnpepper.com.pk/"><img class="logo" src="https://www.saltnpepper.com.pk/assets/images/SNP_Logo.png" /></a>
+          <!--Bootstrap theme <img src="./images/Salt'n-Pepper-Restaurant-01.png" />  -->
+        </div>
+        <div id="navbr" class="navbr-collapse collapse">
+          <ul class="nav navbar-nav top_menu user_opt">
+          	<li></li>
+	                <li><a  href="https://www.saltnpepper.com.pk/user/profile">View Profile</a></li>
+	                <li><a href="https://www.saltnpepper.com.pk/user/change_password">Change Password</a></li>
+	                <li><a href="https://www.saltnpepper.com.pk/signup/logout">Logout</a></li>
+          	</ul>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav top_menu">
+            <li class="active"><a href="https://www.saltnpepper.com.pk/">Home</a></li>
+            <li ><a href="https://www.saltnpepper.com.pk/about">About Us</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brands <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a  href="https://www.saltnpepper.com.pk/salt-n-pepper-restaurant">Salt'n Pepper Restaurant</a></li>
+                <li><a  href="https://www.saltnpepper.com.pk/salt-n-pepper-village">Salt'n Pepper Village</a></li>
+                <li class=""><a  href="https://www.saltnpepper.com.pk/salt-n-pepper-express">Salt'n Pepper Express</a></li>
+                <!-- <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li> -->
+              </ul>
+              </li>
+            <!-- <li ><a href="https://www.saltnpepper.com.pk/home/brands">Brands</a></li> -->
+            <!-- <li ><a href="https://www.saltnpepper.com.pk/home/deals">Deals</a></li> -->
+            <!-- <li class="dropdown">
+              <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a  href="https://www.saltnpepper.com.pk/home/menu?rid=967">Salt'n Pepper</a></li>
+                <li><a  href="https://www.saltnpepper.com.pk/home/menu?rid=1">Salt'n Pepper Village</a></li>
+                <li><a  href="https://www.saltnpepper.com.pk/home/menu?rid=56">Salt'n Pepper Grill</a></li>
+              </ul>
+            </li> -->
+            <!-- <li ><a href="https://www.saltnpepper.com.pk/home/menu">Menu</a></li> -->
+
+            <li ><a href="https://www.saltnpepper.com.pk/get-a-franchise">Get a Franchise</a></li>
+            <!-- <li ><a href="https://www.saltnpepper.com.pk/home/job">Job</a></li> -->
+            <li ><a href="https://www.saltnpepper.com.pk/feedback">Feedback</a></li>
+            <li ><a href="https://www.saltnpepper.com.pk/publications">Publications</a></li>
+                        <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rs.<b class="rs">0</b> <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                                  </li>
+             <li><a href="https://www.saltnpepper.com.pk/salt-n-pepper-restaurant/menu"><span class="onlie-order-btn"><b>Order Online</b></span></a></li>
+                                    	<li ><span class="font-grey span"><a class="font-grey" href="https://www.saltnpepper.com.pk/signup">Signup</a> | <a class="font-grey" href="https://www.saltnpepper.com.pk/signup">Login</a></span></li>
+                      </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    
+ <div class="modal fade" id="myModalpopupres" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow-y:hidden !important;top: 15% !important;">
+ 	<div class="modal-dialog modal-lg" role="document">
+ 		<div class="modal-content" style="height: auto;">
+ 			<div class="modal-header" style="background: #efefef;border-radius: 6px;">
+ 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ 			</div>
+ 			<div class="modal-body">
+ 				<a href="https://www.saltnpepper.com.pk/app"><img class="popupimage" src="https://www.saltnpepper.com.pk/assets/images/Road-Block.jpg"/></a>
+ 			</div>
+ 		</div>
+ 	</div>
+</div><!-- end Model -->
+<!--
+	<script>
+	 	$(document).ready(function(){
+	 		 		$('#myModalpopupres').modal('show'); 	});
+	 		 		 </script> -->
+
+
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	
+        <ol class="carousel-indicators">
+                    	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    	<li data-target="#carousel-example-generic" data-slide-to="1" ></li>
+                    	<li data-target="#carousel-example-generic" data-slide-to="2" ></li>
+                    	<li data-target="#carousel-example-generic" data-slide-to="3" ></li>
+                    	<li data-target="#carousel-example-generic" data-slide-to="4" ></li>
+                  </ol>
+        <div class="carousel-inner" role="listbox">
+                  <div class="item active">
+          	<!-- <div class="slide_content">
+            	<a href="#" class="" title=""><img src="./images/Village_logo.png" alt="" /></a>
+            	<div class="thumb_description">
+            		<p class="snp_brand"></p>
+            		<p class="famous_item"></p>
+            	</div>
+            </div> -->
+            <a href="https://www.saltnpepper.com.pk/signup"><img src='https://www.saltnpepper.com.pk/admin/assets/media/Restaurant.png' alt="First slide"></a>
+          </div>
+                    <div class="item ">
+          	<!-- <div class="slide_content">
+            	<a href="#" class="" title=""><img src="./images/Village_logo.png" alt="" /></a>
+            	<div class="thumb_description">
+            		<p class="snp_brand"></p>
+            		<p class="famous_item"></p>
+            	</div>
+            </div> -->
+            <a href="https://www.saltnpepper.com.pk/salt-n-pepper-restaurant"><img src='https://saltnpepper.com.pk/admin/assets/media/Lunch_cum_Hi-Tea_-_18-1-2021_-_Web_Banner-011.png' alt="First slide"></a>
+          </div>
+                    <div class="item ">
+          	<!-- <div class="slide_content">
+            	<a href="#" class="" title=""><img src="./images/Village_logo.png" alt="" /></a>
+            	<div class="thumb_description">
+            		<p class="snp_brand"></p>
+            		<p class="famous_item"></p>
+            	</div>
+            </div> -->
+            <a href="https://www.saltnpepper.com.pk/salt-n-pepper-restaurant"><img src='https://saltnpepper.com.pk/admin/assets/media/001.png' alt="First slide"></a>
+          </div>
+                    <div class="item ">
+          	<!-- <div class="slide_content">
+            	<a href="#" class="" title=""><img src="./images/Village_logo.png" alt="" /></a>
+            	<div class="thumb_description">
+            		<p class="snp_brand"></p>
+            		<p class="famous_item"></p>
+            	</div>
+            </div> -->
+            <a href="https://www.saltnpepper.com.pk/salt-n-pepper-village"><img src='https://www.saltnpepper.com.pk/admin/assets/media/Kid_Free_At_Nashta_Web_Banner_-_03-02-2021-01.png' alt="First slide"></a>
+          </div>
+                    <div class="item ">
+          	<!-- <div class="slide_content">
+            	<a href="#" class="" title=""><img src="./images/Village_logo.png" alt="" /></a>
+            	<div class="thumb_description">
+            		<p class="snp_brand"></p>
+            		<p class="famous_item"></p>
+            	</div>
+            </div> -->
+            <a href="https://www.saltnpepper.com.pk/salt-n-pepper-village"><img src='https://www.saltnpepper.com.pk/admin/assets/media/Dinner_Buffet_-_18-1-2021_-_Web_Banner2-01.png' alt="First slide"></a>
+          </div>
+                    
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+        <!-- Header Home  SLIDER-->
+  <div class="container welcome">
+        <h1>Welcome to the Salt'n Pepper Restaurants</h1>
+        <p>Welcome to the Salt'n Pepper Restaurants website which now should give you the same feeling of warmth as our restaurants have been giving over three decades. Please click our brands below for further information.</p>
+        	
+        	
+        <div class="clear"></div>
+                <div class="btn-center">
+        	<a href="https://www.saltnpepper.com.pk/signup" class="action inline-block mr_bottom">Signup</a>
+        </div>
+               
+        
+      </div>  <div class="row brands">
+      	<div class="brands_content">
+      		 <div class="container">
+		        <h1 class="brandhead-sm">Our Brands</h1>
+		       		<div class="col-lg-12">
+		      		<!--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 padding_none xs-mob-brand">
+		      			<ul class="brands_badges">
+		      				<li><a href="./templates/brand_page.php" title=""><img src="./images/Salt'n pepper_logo.png" /></a></li>
+		      				<li><p>Salt'n Pepper</p></li>
+		      				<li><a href="" title="">Menu</a></li>
+		      				<li><a href="" title="">Deals</a></li>
+		      				<li><a href="" title="">Branches</a></li>
+		      				<li><a href="" title="">Learn More</a></li>
+		      			</ul>
+		      		</div>-->
+		      		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 padding_none xs-mob-brand">
+                    	<div class="brand-img">
+                        	<a class="brand_logos" href="https://www.saltnpepper.com.pk/salt-n-pepper-restaurant" title="Salt'n Pepper Restaurant"><img src="https://www.saltnpepper.com.pk/assets/images/Salt'n-Pepper-Restaurant-01.png" /></a>
+                        </div>
+                        <div class="brand-content">
+						<ul>
+							<li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-restaurant" class="font-white"  title="Salt'n Pepper Restaurant">Salt'n Pepper Restaurant</a></b></li>
+                            
+                            <li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-restaurant/menu" title="">Menu <span class="onlie-ordr-btn"><b>Order Now</b></span></a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-restaurant/deals" title="">Deals</a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-restaurant/photos" title="">Photos</a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-restaurant/branches" title="">Branches</a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-restaurant/event" title="">Events</a></b></li>
+		      			</ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 padding_none xs-mob-brand">
+                    	<div class="brand-img">
+                        	<a class="brand_logos" href="https://www.saltnpepper.com.pk/salt-n-pepper-village" title="Salt'n Pepper Village"><img src="https://www.saltnpepper.com.pk/assets/images/Salt'n-Pepper-Village-01.png" /></a>
+                        </div>
+                        <div class="brand-content">
+						<ul>
+							<li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-village" title="Salt'n Pepper Village" class="font-white">Salt'n Pepper Village</a></b></li>
+							
+                            <li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-village/menu" title="">Menu</a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-village/deals" title="">Deals</a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-village/photos" title="">Photos</a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-village/branches" title="">Branches</a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/reserve" title="">Reservation</a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-village/event" title="">Events</a></b></li>
+		      			</ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 padding_none xs-mob-brand">
+                    	<div class="brand-img">
+                        	<a href="https://www.saltnpepper.com.pk/salt-n-pepper-express" class="brand_logos" title="Salt'n Pepper Express"><img src="https://www.saltnpepper.com.pk/assets/images/express.jpeg" /></a>
+                        </div>
+                        <div class="brand-last-content the-grill">
+						<ul class="">
+							<li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-express"  class="font-white"  title="Salt'n Pepper Express">Salt'n Pepper Express</a></b></li>
+ <li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-express/menu" title="">Menu <span class="onlie-ordr-btn"><b>Order Now</b></span></a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/salt-n-pepper-express/branches" title="">Branches</a></b></li>
+							<!-- <li class="temporary">(Temporarily closed for relocation)</li> -->
+                            <!--
+                            <li><b><a href="https://www.saltnpepper.com.pk/home/menu?rid=56" title="">Menu</a></b></li>
+                                                          <li><b><a href="https://www.saltnpepper.com.pk/home/deals?rid=56" title="">Deals</a></b></li>
+                                                          <li><b><a href="https://www.saltnpepper.com.pk/home/photos?rid=56" title="">Photos</a></b></li>
+                                                          <li><b><a href="https://www.saltnpepper.com.pk/home/branches?rid=56" title="">Branches</a></b></li>
+                                                          <li><b><a href="https://www.saltnpepper.com.pk/home/reservation?rid=56" title="">Make a reservation</a></b></li>-->
+                            
+		      			</ul>
+                        </div>
+                    </div>
+                   <!--  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 padding_none xs-mob-brand">
+                    	<div class="brand-img">
+                        	<a class="brand_logos" href="http://www.saltnpepperuk.com/" target="_blank" title="Salt'n Pepper London"><img src="https://www.saltnpepper.com.pk/assets/images/london-img.png" /></a>
+                        </div>
+                        <div class="brand-content">
+						<ul>
+							<li><b><a href="http://www.saltnpepperuk.com/" target="_blank" title="Salt'n Pepper London" class="font-white">Salt'n Pepper London</a></b></li>
+							
+                   		</ul>
+                        </div>
+                    </div> -->
+                    
+                    
+                    <!-- <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 padding_none xs-mob-brand">
+                    	<div class="brand-img">
+                        	<a href="https://www.saltnpepper.com.pk/home/brands?rid=7883" title=""><img src="https://www.saltnpepper.com.pk/assets/images/Village_logo.png" /></a>
+                        </div>
+                        <div class="brand-content">
+						<ul>
+							<li><b><a class="font-white" href="https://www.saltnpepper.com.pk/home/brands?rid=7883" title="">Salt'n Pepper Village (Karachi)</a></b></li>
+                            <li><b><a href="https://www.saltnpepper.com.pk/home/menu?rid=7883" title="">Menu</a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/home/deals?rid=7883" title="">Deals</a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/home/branches?rid=7883" title="">Branches</a></b></li>
+		      				<li><b><a href="https://www.saltnpepper.com.pk/home/reservation?rid=7883" title="">Make a reservation</a></b></li>
+		      			</ul>
+                        </div>
+                    </div> -->
+                    
+                    </div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		      		<div class="welcome padding_top_btm_none padding_mobile">
+						<h1>Our Franchises</h1>
+						<p class="franchises_text">Each of our franchises are individually managed. For further details, kindly contact them directly.</p>
+					</div>
+				</div>
+                        
+		      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 brands_links">
+                        	<div class="col-lg-11 col-md-10 col-sm-10 col-xs-10 franchises">
+                        		<div class="franchise_location"> <i class="fa fa-map-marker" aria-hidden="true"></i></div>
+		                        <a href="javascript:;" title=""><b>Salt’ n Pepper Islamabad</b></a><br>
+		                        <small class="address">Plot# 55, Shabbir Plaza, Blue Area, F-6, Islamabad</small><br />
+                                <small class="address">051 2604904-6</small>
+		                    </div>
+                        </div>
+				<!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 brands_links">
+                        	<div class="col-lg-11 col-md-10 col-sm-10 col-xs-10 franchises">
+                        		<div class="franchise_location"> <i class="fa fa-map-marker" aria-hidden="true"></i></div>
+		                        <a href="javascript:;" title=""><b>Salt’ n Pepper Multan</b></a><br>
+		                        <small class="address">32-A Gulgasht Colony Boson Road, Multan</small><br />
+                                <small class="address">061 6522571-2</small>
+		                    </div>
+                        </div> -->
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 brands_links">
+                        	<div class="col-lg-11 col-md-10 col-sm-10 col-xs-10 franchises">
+                        		<div class="franchise_location"> <i class="fa fa-map-marker" aria-hidden="true"></i></div>
+		                        <a href="javascript:;" title=""><b>Salt’ n Pepper Faisalabad</b></a><br>
+		                        <small class="address">14-Kohinoor City, Faisalabad</small><br />
+                                <small class="address">041 8711404</small>
+		                    </div>
+                        </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 brands_links">
+                        	<div class="col-lg-11 col-md-10 col-sm-10 col-xs-10 franchises">
+                        		<div class="franchise_location"> <i class="fa fa-map-marker" aria-hidden="true"></i></div>
+		                        <a href="javascript:;" title=""><b>Salt’ n Pepper Bahawalpur</b></a><br>
+		                        <small class="address">D.C Chowk, opposite Commissioner House, Bahawalpur</small><br/>
+		                        <small class="address">062-2740271-2</small>
+		                    </div>
+                        </div>
+				
+				
+		      
+		      </div><!-- End Container Here -->
+      	</div>
+      </div>  <div class="row footer">
+      	<div class="footer_content">
+      		<div class="container footer_padding">
+      			
+		      				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 for-xs-screen padding_none">
+				      			<ul class="footer-ul">
+					  				<li><h3>Useful Links</h3></li>
+					  				<li><a href="https://www.saltnpepper.com.pk/">Home</a></li>
+					  				<li><a href="https://www.saltnpepper.com.pk/about">About Us</a></li>
+					  				<li><a href="https://www.saltnpepper.com.pk/get-a-franchise">Get a Franchise</a></li>
+					  				<li><a href="https://www.saltnpepper.com.pk/feedback">Feedback</a></li>
+					  				<li><a href="https://www.saltnpepper.com.pk/publications">Publications</a></li>
+					  				            						<li><a href="https://www.saltnpepper.com.pk/signup">Signup</a></li>
+            						<li><a href="https://www.saltnpepper.com.pk/signup">Login</a></li>
+						            					  			</ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 for-xs-screen padding_none">
+				      			<ul class="footer-ul">
+					  				<li><h3>Contact Us</h3></li>
+                                    <li>Foodconsults (Pvt) Ltd.</li>
+					  				<li><i class="fa fa-map-marker left" aria-hidden="true"></i>&nbsp;23 Usman Block,
+					  					<br> New Garden Town, <br>Lahore, Pakistan</li>
+					  				<li><i class="fa fa-phone left" aria-hidden="true"></i>&nbsp;+92-42-35850931</li>
+                                    <li><i class="fa fa-fax left" aria-hidden="true"></i>&nbsp;+92-42-35850930</li>
+					  				<li><i class="fa fa-truck left" aria-hidden="true"></i>&nbsp;111-100-678</li>
+					  				<li><i class="fa fa-envelope left" aria-hidden="true"></i>&nbsp;snpfood@brain.net.pk</li>
+					  			</ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 for-xs-screen padding_none">
+                              <ul class="footer-ul">
+                                  <li><h3>Information</h3></li>
+                                  <!-- <li><a href="https://www.saltnpepper.com.pk/home/deliverypolicy" title="">Delivery Policy</a></li> -->
+                                  <li><a href="https://www.saltnpepper.com.pk/terms" title="">Terms & Conditions</a></li>
+                                  <li><a href="https://www.saltnpepper.com.pk/privacy-policy" title="">Privacy Policy</a></li>
+                                  <!-- <li><a href="" title="">Return Policy</a></li> -->
+                                  <!-- <li><a href="" title="">Salt'n Pepper Cafe</a></li>
+                                  <li><a href="" title="">Salt'n Pepper Grill</a></li> -->
+                              </ul>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 for-xs-screen padding_none">
+				      			<ul class="footer-ul">
+					  				<li><h3>Find Us</h3></li>
+					  				<!-- App Buttons Start-->
+					  				
+					  				<!-- App Buttons End -->
+					  				<li><h3></h3></li>
+					  				<!-- Social Icons Start -->
+					  				<li class="fb_btn">
+					  					<a target="_blank"  href="https://www.facebook.com/TheSaltnPepperRestaurants/"><img src="https://www.saltnpepper.com.pk/assets/images/facebook.png" /></a>
+					  						<!--<li class="social"><a href="https://www.facebook.com/TheSaltnPepperRestaurants/" title=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>-->
+							  				<a target="_blank"  href="https://twitter.com/snprestaurant"><img src="https://www.saltnpepper.com.pk/assets/images/twitter.png"/></a>
+							  				<a target="_blank"  href="https://www.instagram.com/saltnpepper_official"><img src="https://www.saltnpepper.com.pk/assets/images/Instagram.png"/></a>
+							  					<a target="_blank"  href="#"><img src="https://www.saltnpepper.com.pk/assets/images/youtube.png"/></a>
+					  				
+					  				<!-- Social Icons End -->
+					  				<!-- <li><a href="" title="">Salt'n Pepper Cafe</a></li>
+					  				<li><a href="" title="">Salt'n Pepper Grill</a></li> -->
+					  			</li>
+					  			<ul class="footer-ul">
+					  				<li><a href="https://www.saltnpepper.com.pk/app" id="download_app_link"><h3>Download the App</h3></a></li>
+					  				<!-- App Buttons Start-->
+					  				<li class="app_buttons"> 
+					  					<!--  -->
+					  					<ul>
+					  						<li class="app"><a target="_blank" href="https://play.google.com/store/apps/details?id=com.saltnpepper.app&hl=en" title="Android App" class="play-store"><img src="https://www.saltnpepper.com.pk/assets/images/Play_Store_white.png" /></a></li>
+					  						<li class="app"><a target="_blank" href="https://itunes.apple.com/us/app/saltn-pepper/id1204910529?mt=8" title="IOS App" class="i-tunes"><img src="https://www.saltnpepper.com.pk/assets/images/App_Store_white.png" /></a></li>
+					  						
+					  					</ul> 
+					  				</li>
+					  				
+					  				
+                            </div>
+                            
+                 </div>
+      		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 for-xs-screen footer-bottom">
+                            	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 for-xs-screen">
+                            	<span class="left">Developed by <a class="font-white" href="http://www.horizonwebsolutions.co.uk/" target="_blank">Horizon Web Solutions</a></span>
+                            	</div>
+                            	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 for-xs-screen center mobile_left">
+                            		<span class="font-white">© 2017 Salt'n Pepper. All rights reserved.</span>
+                            	</div>
+                            	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 for-xs-screen">
+                            		<span class="right">Powered by <a class="font-white" href="http://tossdown.com/" target="_blank">tossdown.com</a></span>
+                            	</div>
+                            </div>
+      	</div>
+      </div>
+ </div> <!-- /container -->
+<script>
+        $(document).ready(function (){
+        	if(navigator.userAgent.toLowerCase().indexOf("android") > -1){
+        		$('#download_app_link').attr('href', 'https://play.google.com/store/apps/details?id=com.saltnpepper.app&hl=en');
+	         }
+	         if(navigator.userAgent.toLowerCase().indexOf("iphone") > -1){
+	         	$('#download_app_link').attr('href', 'https://itunes.apple.com/us/app/saltn-pepper/id1204910529?mt=8');
+	         }
+         
+        });
+</script>
+  	
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"291c9cd637","applicationID":"28107907","transactionName":"YVcDZkBXXEZWV0RaW1gdIFFGX11bGHxfXlEZWw9WV04=","queueTime":0,"applicationTime":8,"atts":"TRAAEAhNT0g=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+  
+</html>
+
